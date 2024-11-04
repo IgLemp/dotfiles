@@ -1,0 +1,13 @@
+[colors.primary]
+background = "0x181818"
+
+[font]
+size = 8.0
+
+[font.normal]
+family = "JetBrainsMono"
+style = "Medium"
+
+[window.padding]
+x = 8
+y = 8

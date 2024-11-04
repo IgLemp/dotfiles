@@ -17,17 +17,20 @@ font pango:monospace 8
 
 # exec programs
 exec --no-startup-id nm-applet                              # applet for NetworkManager
+exec --no-startup-id pasystray                              # applet for PulseAudio
 exec --no-startup-id ~/.scripts/disable_bleeping.sh 	    # thank you debian
 exec picom --backend glx --vsync                            # screen tearing fix
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh # polybar
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 # polkit
 exec --no-startup-id redshift -l 54.4:18.6 -t 5700:3600 -g 0.8 -m randr -v
+exec --no-startup-id ~/.local/bin/activate-linux
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork # i3lock
 
-  exec feh --bg-scale ~/.config/wallpapers/wallpaper-empty.png           # wallpaper
+exec feh --bg-scale ~/.config/wallpapers/flat-181818.png           # wallpaper
 # exec feh --bg-tile  ~/.config/wallpapers/error_wall.png                # error
 # exec feh --bg-scale ~/.config/wallpapers/excursions-additionals-dm.jpg # excursions
 # exec feh --bg-scale ~/.config/wallpapers/wise_tree.jpeg                # wise tree
+# exec feh --bg-max ~/.config/wallpapers/Kalendarz\ roku\ akademickiego\ 23_24.jpg # speed
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -38,11 +41,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # && $refresh_i3status
 
 # screen brightnessctl
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +8
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 8-
+#bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +8
+#bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 8-
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/brightnessControl.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/brightnessControl.sh down
 
 # spotify control
 bindsym XF86Favorites exec --no-startup-id playerctl --player=spotify play-pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl --player=spotify play-pause
 
 # start programs on key binding
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -52,9 +58,10 @@ bindsym $mod+x exec ~/.scripts/dmenu_custom.sh
 bindsym shift+XF86Display exec /home/igor/.scripts/screen_off.sh
 bindsym $mod+Return exec alacritty
 bindsym $mod+equal exec gnome-calculator
+# bindsym $mod+
 
 # change keyboard layout
-bindsym $mod+l exec ~/.scripts/keyboard_layout.sh
+# bindsym $mod+l exec ~/.scripts/keyboard_layout.sh
 
 # make windows look better
 for_window [class="^.*"] border pixel 2
@@ -69,8 +76,8 @@ smart_gaps on
 smart_borders on
 
 # enable floating for certain windows
-for_window [class="Gnome-calculator"] floating enable
-for_window [class="Gnome-screenshot"] floating enable
+for_window [class="gnome-calculator"] floating enable
+for_window [class="gnome-screenshot"] floating enable
 
 
 

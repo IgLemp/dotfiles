@@ -69,9 +69,9 @@ window:
 font:
 #   # The normal (roman) font face to use.
 #   # Style can be specified to pick a specific face.
-  # normal:
-  #   family: JetBrainsMono
-  #   style: Light
+  normal:
+    family: JetBrainsMono
+    style: Medium
 #     # family: "Fira Code"
 #     # family: "Source Code Pro"
 #     # style: Retina
@@ -167,7 +167,7 @@ colors:
 #   # # Tomorrow Night (https://github.com/aarowill/base16-alacritty/blob/master/colors/base16-tomorrow-night.yml)
 #   # # Default colors
   primary:
-    background: '0x222222'
+    background: '0x181818'
 #   #   foreground: '0xc5c8c6'
 #   # # Colors the cursor will use if `custom_cursor_colors` is true
 #   # cursor:
